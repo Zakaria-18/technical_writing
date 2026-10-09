@@ -1,0 +1,141 @@
+# Creating and Activating a Python Virtual Environment
+
+## 1. Purpose
+
+This procedure explains how to create a Python virtual environment, activate it, install the `requests` package, verify the installation, and deactivate the environment.
+
+## 2. Prerequisites
+
+Before starting, ensure that you have:
+
+- A computer running Windows, macOS, or Linux.
+- Python 3.10 or later installed.
+- A terminal application, such as PowerShell, Command Prompt, or Terminal.
+- An active internet connection.
+- Basic knowledge of entering commands in a terminal.
+
+Verify Python installation by running `python --version`. On macOS or Linux, you may need to run `python3 --version`. Confirm that the displayed version is 3.10 or later.
+
+## 3. Procedure
+
+### Step 1: Create a project directory
+
+**Action:** Run the following command:
+
+```bash
+mkdir python-package-lab
+```
+
+**Expected result:** A directory named `python-package-lab` is created in the current working directory.
+
+### Step 2: Enter the project directory
+
+**Action:** Run:
+
+```bash
+cd python-package-lab
+```
+
+**Expected result:** The terminal's current working directory changes to `python-package-lab`.
+
+### Step 3: Create a virtual environment
+
+**Action:** Run the command appropriate for your operating system.
+
+Windows:
+
+```powershell
+python -m venv .venv
+```
+
+macOS or Linux:
+
+```bash
+python3 -m venv .venv
+```
+
+**Expected result:** A `.venv` directory containing the virtual environment files is created.
+
+### Step 4: Activate the virtual environment
+
+**Action:** Run the appropriate activation command.
+
+Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Windows Command Prompt:
+
+```bat
+.venv\Scripts\activate.bat
+```
+
+macOS or Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+**Expected result:** The terminal prompt typically displays `(.venv)`, indicating that the virtual environment is active.
+
+### Step 5: Install the package
+
+**Action:** Run:
+
+```bash
+python -m pip install requests
+```
+
+**Expected result:** The `requests` package and its dependencies are downloaded and installed successfully.
+
+### Step 6: Verify the installation
+
+**Action:** Run:
+
+```bash
+python -c "import requests; print(requests.__version__)"
+```
+
+**Expected result:** The installed version of `requests` is displayed without an import error.
+
+### Step 7: Deactivate the virtual environment
+
+**Action:** Run:
+
+```bash
+deactivate
+```
+
+**Expected result:** The `(.venv)` indicator disappears from the terminal prompt.
+
+## 4. Screenshot Description
+
+**Screenshot 1: Successful package installation and verification**
+
+The screenshot should show a terminal with the virtual environment active, the command used to verify the `requests` installation, and the resulting version number. Personal file paths and sensitive information should not be visible.
+
+## 5. Troubleshooting
+
+**Problem:** PowerShell reports that script execution is disabled when activating the virtual environment.
+
+**Cause:** The current PowerShell execution policy prevents the activation script from running.
+
+**Solution:** Open Command Prompt in the project directory and run:
+
+```bat
+.venv\Scripts\activate.bat
+```
+
+**Expected result:** The `(.venv)` indicator appears in the Command Prompt.
+
+## 6. Completion Criteria
+
+The procedure is complete when:
+
+- The `.venv` directory exists.
+- The virtual environment activates successfully.
+- The `requests` package imports without errors.
+- The installed package version is displayed.
+- The virtual environment deactivates successfully.
